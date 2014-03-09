@@ -20,15 +20,17 @@ public class Solution {
         int cols = matrix[0].length;
         int start = 0;
         int end = rows * cols - 1;
-        while(start <= end){
-            int mid = (start+end) / 2;
-            int digit = matrix[mid/cols][mid%cols];  // 直接把整个matrix当做一个一位数组来处理，精妙！
-            if(target == digit)
+        while (start <= end) {
+            int mid = (start + end) / 2;
+            // Tricks to treat it as a 1-D array
+            int digit = matrix[mid / cols][mid % cols];
+            if (target == digit) {
                 return true;
-            else if(target > digit)
+            } else if (target > digit) {
                 start = mid + 1;
-            else
+            } else {
                 end = mid - 1;
+            }
         }
         return false;
     }
