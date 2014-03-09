@@ -14,18 +14,20 @@ The minimum depth is the number of nodes along the shortest path from the root n
  * }
  */
 public class Solution {
-    
     public int minDepth(TreeNode root) {
-        if(root == null)
+        if (root == null) {
             return 0;
+        }
         return get_min(root);
     }
     
     public int get_min(TreeNode root){
-        if(root == null)
+        if(root == null) {
             return Integer.MAX_VALUE;
-        if(root.left == null && root.right == null)
+        }
+        if(root.left == null && root.right == null) {
             return 1;
+        }
         
         return Math.min(get_min(root.left), get_min(root.right)) + 1;
     }
