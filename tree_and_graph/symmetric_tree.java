@@ -29,17 +29,22 @@ Bonus points if you could solve it both recursively and iteratively.
  */
 public class Solution {
     public boolean isSymmetric2(TreeNode root) {
-        if (root == null)
+        if (root == null) {
             return true;
+        }
         return isSym(root.left, root.right);
     }
     
     private boolean isSym(TreeNode left, TreeNode right){
-        if(left == null && right == null)
+        if (left == null && right == null) {
             return true;
-        if(left == null || right == null)
+        }
+        if (left == null || right == null) {
             return false;
-        return left.val == right.val && isSym(left.left, right.right) && isSym(left.right, right.left);
+        }
+        return left.val == right.val 
+            && isSym(left.left, right.right) 
+            && isSym(left.right, right.left);
     }
     
     
